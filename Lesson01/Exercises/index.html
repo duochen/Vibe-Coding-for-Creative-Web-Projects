@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Web App</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .form-input,
+    .result-area {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border: 2px solid #333;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #4a90d9;
+    }
+
+    .result-area {
+      min-height: 120px;
+      background: #d6eaf8;
+      border-style: dashed;
+      resize: vertical;
+    }
+
+    .action-button {
+      background: #4a90d9;
+      color: #fff;
+      border: 2px solid #333;
+      border-radius: 999px;
+      padding: 0.55rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .action-button:hover {
+      background: #3a7bc8;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <input
+      type="text"
+      class="form-input"
+      id="userInput"
+      placeholder="Type something…"
+      aria-label="User input"
+    >
+
+    <button type="button" class="action-button" id="actionButton">
+      Submit
+    </button>
+
+    <textarea
+      class="result-area"
+      id="resultArea"
+      readonly
+      placeholder="Output will appear here…"
+      aria-label="Output"
+    ></textarea>
+  </div>
+
+  <script>
+    const userInput = document.getElementById("userInput");
+    const actionButton = document.getElementById("actionButton");
+    const resultArea = document.getElementById("resultArea");
+
+    function handleAction() {
+      const value = userInput.value.trim();
+      resultArea.value = value || "You didn't type anything.";
+    }
+
+    actionButton.addEventListener("click", handleAction);
+
+    userInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        handleAction();
+      }
+    });
+  </script>
+</body>
+</html>
