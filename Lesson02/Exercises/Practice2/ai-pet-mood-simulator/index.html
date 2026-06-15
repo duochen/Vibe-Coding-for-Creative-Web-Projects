@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Pet Mood Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">🤖 AI Pet Mood Simulator</h1>
+      <p class="subtitle">Take care of your virtual pet and watch its mood change!</p>
+    </header>
+
+    <!-- Main game area -->
+    <main class="main-grid">
+      <!-- Pet card -->
+      <section class="card pet-card">
+        <div class="pet-stage" id="petStage">
+          <div class="pet-glow"></div>
+          <div class="pet-body" id="petBody">
+            <div class="pet-face" id="petFace">
+              <div class="pet-eyes" id="petEyes">
+                <span class="eye left">●</span>
+                <span class="eye right">●</span>
+              </div>
+              <div class="pet-mouth" id="petMouth">◡</div>
+            </div>
+          </div>
+          <p class="pet-emoji" id="petEmoji" aria-hidden="true">🐣</p>
+        </div>
+        <p class="pet-name">Sparky the AI Pet</p>
+        <p class="pet-mood-label" id="petMoodLabel">Feeling curious!</p>
+      </section>
+
+      <!-- Mood bars -->
+      <section class="card stats-card">
+        <h2 class="card-title">Mood Levels</h2>
+
+        <div class="stat">
+          <div class="stat-header">
+            <span>😊 Happiness</span>
+            <span id="happinessValue">70</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill happiness" id="happinessBar"></div>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-header">
+            <span>🍎 Hunger</span>
+            <span id="hungerValue">40</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill hunger" id="hungerBar"></div>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-header">
+            <span>⚡ Energy</span>
+            <span id="energyValue">60</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill energy" id="energyBar"></div>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-header">
+            <span>🔍 Curiosity</span>
+            <span id="curiosityValue">50</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill curiosity" id="curiosityBar"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action buttons -->
+      <section class="card actions-card">
+        <h2 class="card-title">What will you do?</h2>
+        <div class="button-grid">
+          <button class="action-btn feed" id="feedBtn" type="button">
+            🍕 Feed Pet
+          </button>
+          <button class="action-btn play" id="playBtn" type="button">
+            🎾 Play
+          </button>
+          <button class="action-btn sleep" id="sleepBtn" type="button">
+            😴 Sleep
+          </button>
+          <button class="action-btn trick" id="trickBtn" type="button">
+            ✨ Teach Trick
+          </button>
+          <button class="action-btn random" id="randomBtn" type="button">
+            🎲 Random Mood Event
+          </button>
+        </div>
+      </section>
+
+      <!-- Message box -->
+      <section class="card message-card">
+        <h2 class="card-title">Pet Update</h2>
+        <p class="message" id="messageText">
+          Welcome! Click a button to interact with Sparky.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made for creative coding students — edit the code and make Sparky your own!</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
