@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Quest RPG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game">
+    <!-- ===== Header ===== -->
+    <header class="header">
+      <h1 class="title">⚔️ Study Quest RPG</h1>
+      <p class="subtitle">Turn your homework into an adventure</p>
+    </header>
+
+    <!-- Level-up celebration overlay (hidden by default) -->
+    <div class="level-up-overlay hidden" id="levelUpOverlay">
+      <div class="level-up-box">
+        <p class="level-up-label">LEVEL UP!</p>
+        <p class="level-up-number" id="levelUpNumber">2</p>
+        <p class="level-up-rank" id="levelUpRank">Focus Knight</p>
+      </div>
+    </div>
+
+    <!-- Message toast -->
+    <div class="toast hidden" id="toast" role="status"></div>
+
+    <main class="main-layout">
+      <!-- ===== Character Panel ===== -->
+      <section class="panel character-panel">
+        <div class="panel-header">
+          <span class="panel-icon">🧙</span>
+          <h2>Your Character</h2>
+        </div>
+
+        <div class="character-card">
+          <div class="avatar">📚</div>
+          <div class="character-info">
+            <p class="char-name" id="charName">Alex the Adventurer</p>
+            <p class="char-rank" id="charRank">Beginner Scholar</p>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-badge level">
+            <span class="stat-label">Level</span>
+            <span class="stat-value" id="levelValue">1</span>
+          </div>
+          <div class="stat-badge coins">
+            <span class="stat-label">Coins</span>
+            <span class="stat-value" id="coinsValue">0</span>
+          </div>
+          <div class="stat-badge energy">
+            <span class="stat-label">Energy</span>
+            <span class="stat-value" id="energyValue">100</span>
+          </div>
+        </div>
+
+        <!-- XP progress bar -->
+        <div class="xp-section">
+          <div class="xp-header">
+            <span>✨ XP Progress</span>
+            <span id="xpText">0 / 100</span>
+          </div>
+          <div class="xp-track">
+            <div class="xp-fill" id="xpBar"></div>
+          </div>
+        </div>
+
+        <button class="rest-btn" id="restBtn" type="button">
+          🛏️ Rest (+30 Energy)
+        </button>
+      </section>
+
+      <!-- ===== Daily Challenge ===== -->
+      <section class="panel daily-panel">
+        <div class="panel-header">
+          <span class="panel-icon">🌟</span>
+          <h2>Daily Challenge</h2>
+        </div>
+        <div class="daily-card" id="dailyCard">
+          <p class="daily-label">Today's Bonus Quest</p>
+          <p class="daily-title" id="dailyTitle">Loading...</p>
+          <p class="daily-reward" id="dailyReward">Bonus rewards await!</p>
+          <button class="daily-btn" id="dailyBtn" type="button">Complete Daily Challenge</button>
+        </div>
+      </section>
+
+      <!-- ===== Quest List ===== -->
+      <section class="panel quest-panel">
+        <div class="panel-header">
+          <span class="panel-icon">📜</span>
+          <h2>Study Quests</h2>
+        </div>
+
+        <ul class="quest-list" id="questList">
+          <!-- Quest cards are built by JavaScript -->
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Study Quest RPG — Edit the quests in script.js and make it yours!</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

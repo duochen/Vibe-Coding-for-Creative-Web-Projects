@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Mission Control Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- ===== Header ===== -->
+    <header class="header">
+      <div class="header-badge">NASA-STYLE SIMULATOR</div>
+      <h1 class="title">Space Mission Control</h1>
+      <p class="subtitle">Student Mars Exploration Simulator</p>
+    </header>
+
+    <!-- Warning banner (hidden until something is critical) -->
+    <div class="alert-banner hidden" id="alertBanner" role="alert">
+      ⚠️ <span id="alertText">Mission warning!</span>
+    </div>
+
+    <!-- Success banner (shown when Mars is reached) -->
+    <div class="success-banner hidden" id="successBanner" role="status">
+      🎉 <span id="successText">Mission complete!</span>
+    </div>
+
+    <!-- ===== Mission Status Cards ===== -->
+    <section class="status-section">
+      <h2 class="section-title">Mission Status</h2>
+      <div class="status-grid">
+        <article class="status-card fuel">
+          <div class="card-icon">⛽</div>
+          <h3>Fuel Level</h3>
+          <p class="stat-value"><span id="fuelValue">100</span>%</p>
+          <div class="progress-track">
+            <div class="progress-fill" id="fuelBar"></div>
+          </div>
+        </article>
+
+        <article class="status-card oxygen">
+          <div class="card-icon">💨</div>
+          <h3>Oxygen Level</h3>
+          <p class="stat-value"><span id="oxygenValue">100</span>%</p>
+          <div class="progress-track">
+            <div class="progress-fill" id="oxygenBar"></div>
+          </div>
+        </article>
+
+        <article class="status-card health">
+          <div class="card-icon">🛡️</div>
+          <h3>Ship Health</h3>
+          <p class="stat-value"><span id="healthValue">100</span>%</p>
+          <div class="progress-track">
+            <div class="progress-fill" id="healthBar"></div>
+          </div>
+        </article>
+
+        <article class="status-card distance">
+          <div class="card-icon">🔴</div>
+          <h3>Distance to Mars</h3>
+          <p class="stat-value"><span id="distanceValue">1000</span> km</p>
+          <div class="progress-track distance-track">
+            <div class="progress-fill" id="distanceBar"></div>
+          </div>
+        </article>
+
+        <article class="status-card morale">
+          <div class="card-icon">👨‍🚀</div>
+          <h3>Crew Morale</h3>
+          <p class="stat-value"><span id="moraleValue">80</span>%</p>
+          <div class="progress-track">
+            <div class="progress-fill" id="moraleBar"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Main control area ===== -->
+    <div class="control-layout">
+      <!-- Control buttons -->
+      <section class="controls-section">
+        <h2 class="section-title">Command Console</h2>
+        <div class="button-grid">
+          <button class="ctrl-btn launch" id="launchBtn" type="button">
+            🚀 Launch Rocket
+          </button>
+          <button class="ctrl-btn boost" id="boostBtn" type="button">
+            ⚡ Boost Speed
+          </button>
+          <button class="ctrl-btn repair" id="repairBtn" type="button">
+            🔧 Repair Ship
+          </button>
+          <button class="ctrl-btn oxygen" id="saveOxygenBtn" type="button">
+            🫁 Save Oxygen
+          </button>
+          <button class="ctrl-btn message" id="messageBtn" type="button">
+            📡 Send Message to Earth
+          </button>
+          <button class="ctrl-btn random" id="randomBtn" type="button">
+            🌌 Random Space Event
+          </button>
+        </div>
+        <p class="mission-phase" id="missionPhase">Status: Pre-Launch — Awaiting commander orders.</p>
+      </section>
+
+      <!-- Mission log -->
+      <section class="log-section">
+        <h2 class="section-title">Mission Log</h2>
+        <ul class="mission-log" id="missionLog">
+          <li class="log-entry">System online. Mission Control ready.</li>
+        </ul>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>Space Mission Control Dashboard — Built for STEM students</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
