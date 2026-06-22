@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Plan Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- A. Home Page -->
+    <section id="home-screen" class="screen active">
+      <div class="card">
+        <div class="icon" aria-hidden="true">📚</div>
+        <h1 class="title">Study Plan Generator</h1>
+        <p class="description">
+          Create a simple study plan based on your topic and difficulty level.
+        </p>
+        <button type="button" id="open-app-btn" class="btn btn-primary">
+          Open App
+        </button>
+      </div>
+    </section>
+
+    <!-- B. Form Page -->
+    <section id="form-screen" class="screen">
+      <div class="card">
+        <h1 class="title">Create Your Study Plan</h1>
+        <p class="description">Tell us what you want to learn and we'll build a plan for you.</p>
+
+        <form id="study-form" novalidate>
+          <div class="form-group">
+            <label for="topic-input">Enter Topic</label>
+            <input
+              type="text"
+              id="topic-input"
+              name="topic"
+              placeholder="Python, Algebra, Biology, Web Development"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="difficulty-select">Select Difficulty</label>
+            <select id="difficulty-select" name="difficulty">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+
+          <p id="form-error" class="error-message hidden" role="alert">
+            Please enter a topic before creating your plan.
+          </p>
+
+          <button type="submit" class="btn btn-primary">
+            Click to Create
+          </button>
+        </form>
+
+        <button type="button" id="back-home-btn" class="btn btn-link">
+          ← Back to Home
+        </button>
+      </div>
+    </section>
+
+    <!-- C. Data Page -->
+    <section id="data-screen" class="screen">
+      <div class="card">
+        <h1 class="title">Your Personalized Study Plan</h1>
+
+        <div class="result-section">
+          <h2>Topic</h2>
+          <p id="result-topic" class="result-value"></p>
+        </div>
+
+        <div class="result-section">
+          <h2>Difficulty</h2>
+          <p id="result-difficulty" class="result-value"></p>
+        </div>
+
+        <div class="result-section highlight">
+          <h2>Recommended Learning Goal</h2>
+          <p id="result-goal" class="result-value"></p>
+        </div>
+
+        <div class="result-section">
+          <h2>3-Step Study Plan</h2>
+          <ol id="result-steps" class="step-list"></ol>
+        </div>
+
+        <div class="result-section">
+          <h2>Suggested Practice Activity</h2>
+          <p id="result-activity" class="result-value"></p>
+        </div>
+
+        <button type="button" id="create-another-btn" class="btn btn-primary">
+          Create Another Plan
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
