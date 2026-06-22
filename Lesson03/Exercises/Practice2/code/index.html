@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniLingo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Confetti canvas for lesson complete celebration -->
+  <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <div class="app">
+    <!-- Home Screen -->
+    <section id="home-screen" class="screen active">
+      <header class="home-header">
+        <div class="stats-bar">
+          <span class="stat" title="Total experience points">
+            <span class="stat-icon">⚡</span>
+            <span id="home-xp">0</span> XP
+          </span>
+          <span class="stat" title="Day streak">
+            <span class="stat-icon">🔥</span>
+            <span id="home-streak">0</span> day streak
+          </span>
+        </div>
+      </header>
+
+      <div class="home-card card">
+        <div class="mascot" aria-hidden="true">🦉</div>
+        <h1 class="app-title">MiniLingo</h1>
+        <p class="app-subtitle">Learn a little every day</p>
+        <p class="home-topic">🇪🇸 Spanish Beginner Vocabulary</p>
+        <button type="button" id="start-lesson-btn" class="btn btn-primary">
+          Start Lesson
+        </button>
+      </div>
+    </section>
+
+    <!-- Lesson Screen -->
+    <section id="lesson-screen" class="screen">
+      <header class="lesson-header">
+        <button type="button" id="exit-lesson-btn" class="btn-icon" aria-label="Exit lesson">✕</button>
+        <div class="lesson-progress-wrap">
+          <div class="progress-bar">
+            <div id="lesson-progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+        <div id="hearts-display" class="hearts" aria-label="Lives remaining"></div>
+      </header>
+
+      <div class="lesson-card card">
+        <p id="question-number" class="question-number">Question 1 of 8</p>
+        <h2 id="question-text" class="question-text"></h2>
+        <div id="answers-container" class="answers"></div>
+
+        <div id="feedback-area" class="feedback hidden">
+          <p id="feedback-message" class="feedback-message"></p>
+          <button type="button" id="continue-btn" class="btn btn-primary hidden">
+            Continue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lesson Complete Screen -->
+    <section id="complete-screen" class="screen">
+      <div class="complete-card card">
+        <div class="complete-icon" aria-hidden="true">🎉</div>
+        <h1 class="complete-title">Lesson Complete!</h1>
+        <p id="encouraging-message" class="encouraging-message"></p>
+
+        <div class="results-grid">
+          <div class="result-item">
+            <span class="result-value" id="result-correct">0</span>
+            <span class="result-label">Correct</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value" id="result-accuracy">0%</span>
+            <span class="result-label">Accuracy</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value" id="result-xp">0</span>
+            <span class="result-label">XP Earned</span>
+          </div>
+        </div>
+
+        <div class="complete-actions">
+          <button type="button" id="practice-again-btn" class="btn btn-primary">
+            Practice Again
+          </button>
+          <button type="button" id="back-home-btn" class="btn btn-secondary">
+            Back to Home
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hearts depleted screen -->
+    <section id="failed-screen" class="screen">
+      <div class="complete-card card">
+        <div class="complete-icon" aria-hidden="true">💔</div>
+        <h1 class="complete-title">Out of Hearts!</h1>
+        <p class="encouraging-message">Don't worry — practice makes perfect. Try again!</p>
+        <div class="results-grid">
+          <div class="result-item">
+            <span class="result-value" id="failed-correct">0</span>
+            <span class="result-label">Correct</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value" id="failed-xp">0</span>
+            <span class="result-label">XP Earned</span>
+          </div>
+        </div>
+        <div class="complete-actions">
+          <button type="button" id="retry-btn" class="btn btn-primary">Practice Again</button>
+          <button type="button" id="failed-home-btn" class="btn btn-secondary">Back to Home</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

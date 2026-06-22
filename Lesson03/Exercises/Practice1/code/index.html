@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniWiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top header with search and random article button -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo" id="home-link">MiniWiki</h1>
+      <p class="tagline">A simple student-built encyclopedia</p>
+      <div class="header-actions">
+        <input
+          type="search"
+          id="search-box"
+          class="search-box"
+          placeholder="Search articles..."
+          aria-label="Search articles"
+        >
+        <button type="button" id="random-btn" class="btn-random">Random Article</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Left sidebar: list of all articles -->
+    <aside class="sidebar" aria-label="Article list">
+      <h2 class="sidebar-title">Articles</h2>
+      <ul id="article-list" class="article-list">
+        <!-- Article links are added by JavaScript -->
+      </ul>
+    </aside>
+
+    <!-- Main content area: homepage or selected article -->
+    <main id="main-content" class="main-content">
+      <!-- Content is rendered by JavaScript -->
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

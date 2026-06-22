@@ -1,0 +1,242 @@
+/* MiniWiki - Wikipedia-inspired styles for beginners */
+
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #202122;
+  background-color: #f8f9fa;
+}
+
+/* Header */
+.site-header {
+  background-color: #fff;
+  border-bottom: 1px solid #a2a9b1;
+  padding: 1rem 1.5rem;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.75rem;
+  font-family: "Linux Libertine", Georgia, serif;
+  color: #000;
+  cursor: pointer;
+}
+
+.logo:hover {
+  color: #3366cc;
+}
+
+.tagline {
+  margin: 0.25rem 0 1rem;
+  color: #54595d;
+  font-size: 0.95rem;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #a2a9b1;
+  border-radius: 2px;
+}
+
+.search-box:focus {
+  outline: 2px solid #3366cc;
+  border-color: #3366cc;
+}
+
+.btn-random {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  background-color: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #3366cc;
+}
+
+.btn-random:hover {
+  background-color: #eaecf0;
+}
+
+/* Two-column layout: sidebar + main content */
+.layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 140px);
+}
+
+/* Left sidebar */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background-color: #f8f9fa;
+  border-right: 1px solid #a2a9b1;
+  padding: 1rem;
+}
+
+.sidebar-title {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #54595d;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.article-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.article-list li {
+  margin-bottom: 0.35rem;
+}
+
+.article-list a,
+.related-links a,
+.home-list a {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+.article-list a:hover,
+.related-links a:hover,
+.home-list a:hover {
+  text-decoration: underline;
+}
+
+.article-list a.active {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  border-left: 1px solid #eaecf0;
+}
+
+.main-content h1 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 0.25rem;
+}
+
+.main-content h2 {
+  font-size: 1.35rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #eaecf0;
+  padding-bottom: 0.2rem;
+}
+
+.intro {
+  font-size: 1.05rem;
+  color: #202122;
+}
+
+/* Homepage article list */
+.home-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.home-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Search results */
+.search-results h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.search-results ul {
+  list-style: none;
+  padding: 0;
+}
+
+.search-results li {
+  margin-bottom: 0.5rem;
+}
+
+.no-results {
+  color: #54595d;
+  font-style: italic;
+}
+
+/* Related articles section at bottom of each article */
+.related-links {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #a2a9b1;
+}
+
+.related-links h2 {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+.related-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.related-links li {
+  margin-bottom: 0.35rem;
+}
+
+/* Responsive layout for tablets and smaller laptops */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #a2a9b1;
+  }
+
+  .main-content {
+    padding: 1rem;
+    border-left: none;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+}
