@@ -1,0 +1,158 @@
+/* ===== Page layout ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(165deg, #dfe8df 0%, #c8d8c8 45%, #b8ccb8 100%);
+  color: #2c3e2c;
+  padding: 1.5rem;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 100%;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #2a3d2a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Current player / winner message — large and easy to read */
+.status {
+  margin-top: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.65rem 1.75rem;
+  background: #ffffff;
+  border: 2px solid #c9b07a;
+  border-radius: 999px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  min-width: 220px;
+}
+
+.status.winner {
+  background: #fff8e1;
+  border-color: #e6b84d;
+  color: #7a5a00;
+}
+
+/* ===== Wooden board frame ===== */
+.board {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 0;
+  width: 100%;
+  max-width: min(90vw, 540px);
+  aspect-ratio: 1;
+  padding: 14px;
+  border-radius: 10px;
+
+  /* Outer wood frame */
+  background: linear-gradient(145deg, #8b5a2b 0%, #6b4423 50%, #5a3a1e 100%);
+  border: 5px solid #4a2f18;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.15);
+
+  /* Inner playing surface — light wood grain look */
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(160deg, #e8c98a 0%, #d4a85c 35%, #c9954a 70%, #b8843f 100%);
+  background-size: 8px 100%, 100% 8px, 100% 100%;
+}
+
+/* Each intersection on the grid */
+.cell {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid rgba(70, 45, 15, 0.45);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cell:hover:not(.taken):not(:disabled) {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+/* ===== Smooth round stones ===== */
+.cell.taken::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 82%;
+  height: 82%;
+  border-radius: 50%;
+}
+
+.cell.black::after {
+  background: radial-gradient(circle at 32% 28%, #666 0%, #333 45%, #111 100%);
+  box-shadow:
+    0 3px 5px rgba(0, 0, 0, 0.45),
+    inset 0 2px 4px rgba(255, 255, 255, 0.12),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.cell.white::after {
+  background: radial-gradient(circle at 32% 28%, #ffffff 0%, #f0f0f0 50%, #d5d5d5 100%);
+  box-shadow:
+    0 3px 5px rgba(0, 0, 0, 0.3),
+    inset 0 2px 5px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(180, 180, 180, 0.6);
+}
+
+/* ===== Restart button ===== */
+.btn-restart {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.8rem 2rem;
+  border: 2px solid #3d6349;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #5f9b6e 0%, #4a7c59 55%, #3d6849 100%);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.btn-restart:hover {
+  background: linear-gradient(180deg, #6aab79 0%, #55986a 55%, #457552 100%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+  transform: translateY(-1px);
+}
+
+.btn-restart:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}

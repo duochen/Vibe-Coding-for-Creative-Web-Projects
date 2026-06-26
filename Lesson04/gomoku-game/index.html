@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋 Gomoku Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game">
+    <!-- Game title and status -->
+    <header class="header">
+      <h1 class="title">五子棋 Gomoku Game</h1>
+      <p class="status" id="status" role="status">Black's turn</p>
+    </header>
+
+    <!-- 15x15 board — cells are created by script.js -->
+    <div class="board" id="board" aria-label="Gomoku board"></div>
+
+    <!-- Reset everything and play again -->
+    <button type="button" class="btn-restart" id="restartBtn">Restart Game</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
