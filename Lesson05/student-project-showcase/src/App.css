@@ -1,0 +1,236 @@
+/* Color palette: slate neutrals + bright blue accent */
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+/* Hero card — main project information */
+.hero-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+
+.app-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin: 0 0 12px;
+}
+
+header h1 {
+  margin: 0 0 16px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.category {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 14px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.description {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.skills {
+  margin-top: 32px;
+}
+
+section h2 {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.description p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  padding: 8px 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* Progress section */
+.progress {
+  margin-top: 48px;
+}
+
+.milestone-list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.milestone-card,
+.plan-week-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.milestone-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.milestone-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+/* Button + project plan group */
+.actions {
+  margin-top: 48px;
+}
+
+.primary-button {
+  display: block;
+  width: 100%;
+  padding: 18px 32px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2563eb;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+.primary-button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+/* Project plan section */
+.project-plan {
+  margin-top: 20px;
+  padding: 28px 32px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.plan-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 24px 16px 40px;
+  }
+
+  .hero-card {
+    padding: 24px 20px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  .description p {
+    font-size: 16px;
+  }
+
+  .progress,
+  .actions {
+    margin-top: 32px;
+  }
+
+  .milestone-card,
+  .plan-week-card {
+    padding: 16px 18px;
+    gap: 12px;
+  }
+
+  .milestone-number {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .milestone-text {
+    font-size: 15px;
+  }
+
+  .project-plan {
+    padding: 20px;
+  }
+
+  .primary-button {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+}
