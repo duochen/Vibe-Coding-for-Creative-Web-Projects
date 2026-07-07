@@ -8,6 +8,7 @@ const pet = {
   hunger: 40,    // higher = more hungry
   energy: 60,
   curiosity: 50,
+  health: 80,
 };
 
 // --- Grab HTML elements we need to update ---
@@ -15,11 +16,13 @@ const happinessBar = document.getElementById("happinessBar");
 const hungerBar = document.getElementById("hungerBar");
 const energyBar = document.getElementById("energyBar");
 const curiosityBar = document.getElementById("curiosityBar");
+const healthBar = document.getElementById("healthBar");
 
 const happinessValue = document.getElementById("happinessValue");
 const hungerValue = document.getElementById("hungerValue");
 const energyValue = document.getElementById("energyValue");
 const curiosityValue = document.getElementById("curiosityValue");
+const healthValue = document.getElementById("healthValue");
 
 const messageText = document.getElementById("messageText");
 const petBody = document.getElementById("petBody");
@@ -33,6 +36,7 @@ const feedBtn = document.getElementById("feedBtn");
 const playBtn = document.getElementById("playBtn");
 const sleepBtn = document.getElementById("sleepBtn");
 const trickBtn = document.getElementById("trickBtn");
+const sickBtn = document.getElementById("sickBtn");
 const randomBtn = document.getElementById("randomBtn");
 
 // Keep a value between 0 and 100
@@ -51,11 +55,13 @@ function updateDisplay() {
   hungerBar.style.width = pet.hunger + "%";
   energyBar.style.width = pet.energy + "%";
   curiosityBar.style.width = pet.curiosity + "%";
+  healthBar.style.width = pet.health + "%";
 
   happinessValue.textContent = pet.happiness;
   hungerValue.textContent = pet.hunger;
   energyValue.textContent = pet.energy;
   curiosityValue.textContent = pet.curiosity;
+  healthValue.textContent = pet.health;
 
   updatePetAppearance();
 }
@@ -94,11 +100,16 @@ function flashBar(barElement) {
 // Change the pet's face, color, and emoji based on current moods
 function updatePetAppearance() {
   // Reset CSS classes on the pet body
-  petBody.classList.remove("happy", "hungry", "tired", "sleepy", "excited");
+  petBody.classList.remove("happy", "hungry", "tired", "sleepy", "excited", "sick");
   petEyes.classList.remove("sleepy");
 
-  // Decide the pet's overall mood from its stats
-  if (pet.energy < 25) {
+  // Sick is the top priority — show it before other moods
+  if (pet.health < 40) {
+    petBody.classList.add("sick");
+    petMouth.textContent = "×";
+    petEmoji.textContent = "🤒";
+    petMoodLabel.textContent = "Not feeling well...";
+  } else if (pet.energy < 25) {
     petBody.classList.add("sleepy");
     petEyes.classList.add("sleepy");
     petMouth.textContent = "—";
@@ -136,9 +147,11 @@ function feedPet() {
   changeStat("hunger", -20);
   changeStat("happiness", 10);
   changeStat("energy", 5);
+  changeStat("health", 5);
 
   flashBar(hungerBar);
   flashBar(happinessBar);
+  flashBar(healthBar);
   animatePet("bounce");
   animateButton(feedBtn);
   showMessage("Yum! Your pet enjoyed a tasty snack!");
@@ -151,6 +164,7 @@ function playWithPet() {
   changeStat("energy", -15);
   changeStat("hunger", 10);
   changeStat("curiosity", 5);
+  changeStat("health", 3);
 
   flashBar(happinessBar);
   flashBar(energyBar);
@@ -165,8 +179,10 @@ function sleepPet() {
   changeStat("energy", 25);
   changeStat("happiness", 5);
   changeStat("hunger", 8);
+  changeStat("health", 8);
 
   flashBar(energyBar);
+  flashBar(healthBar);
   animatePet("shake");
   animateButton(sleepBtn);
   showMessage("Your pet is getting sleepy. Zzz...");
@@ -184,6 +200,20 @@ function teachTrick() {
   animatePet("bounce");
   animateButton(trickBtn);
   showMessage("Your pet learned a new trick!");
+  updateDisplay();
+}
+
+// --- Action: Pet gets sick ---
+function getSick() {
+  changeStat("health", -30);
+  changeStat("happiness", -15);
+  changeStat("energy", -10);
+
+  flashBar(healthBar);
+  flashBar(happinessBar);
+  animatePet("shake");
+  animateButton(sickBtn);
+  showMessage("Your pet is sick. Time for rest and snacks!");
   updateDisplay();
 }
 
@@ -239,6 +269,7 @@ feedBtn.addEventListener("click", feedPet);
 playBtn.addEventListener("click", playWithPet);
 sleepBtn.addEventListener("click", sleepPet);
 trickBtn.addEventListener("click", teachTrick);
+sickBtn.addEventListener("click", getSick);
 randomBtn.addEventListener("click", randomEvent);
 
 // --- Start the app with the first display update ---

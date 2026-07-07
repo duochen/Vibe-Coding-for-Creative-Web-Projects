@@ -127,9 +127,15 @@ body {
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.6rem;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 480px) {
+  .stat-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .stat-badge {
@@ -156,12 +162,43 @@ body {
   color: #4c1d95;
 }
 
+.stat-badge.xp .stat-value { color: #7c3aed; }
 .stat-badge.coins .stat-value { color: #b45309; }
 .stat-badge.energy .stat-value { color: #059669; }
 
-/* ===== XP bar ===== */
-.xp-section {
+/* ===== XP & Energy bars ===== */
+.xp-section,
+.energy-section {
   margin-bottom: 1rem;
+}
+
+.energy-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 0.35rem;
+}
+
+.energy-track {
+  height: 14px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid #059669;
+}
+
+.energy-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #059669, #34d399);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.energy-fill.low {
+  background: linear-gradient(90deg, #dc2626, #f87171);
 }
 
 .xp-header {

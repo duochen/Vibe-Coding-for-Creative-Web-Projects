@@ -79,39 +79,18 @@ This is easier than full Next.js for beginners and works well for a one-lesson w
 
 # 5. Step-by-Step Student Tutorial
 
-## Step 1: Create a New React Project
+## Step 1: Open Cursor
 
 Open Cursor.
-
-Open a terminal inside Cursor.
-
-Run:
-
-```bash
-npm create vite@latest student-project-showcase -- --template react
-cd student-project-showcase
-npm install
-npm run dev
-```
-
-Then open the local URL shown in the terminal, usually:
-
-```bash
-http://localhost:5173
-```
-
-Students should see the default Vite React page.
 
 ---
 
 # 6. Step 2: Ask Cursor to Create a Basic App First
 
-Open `src/App.jsx`.
-
-Select all existing code and ask Cursor:
+Ask the cursor
 
 ```text
-Create a simple React web app called Student Project Showcase.
+Create a simple HTML/CSS/Javascript web app called Student Project Showcase.
 
 The app should show:
 - A project title
@@ -122,7 +101,8 @@ The app should show:
 - A button labeled "View Project Plan"
 
 Keep the code simple for middle and high school students.
-Use only React and CSS.
+Use only HTML, CSS and Javascript.
+No design style on this web app
 Do not add external libraries.
 ```
 
@@ -255,7 +235,7 @@ The project plan section should include:
 - Week 3: Test with users
 - Week 4: Improve the design and prepare a demo
 
-Keep the implementation simple using React useState.
+Keep the implementation simple using JavaScript.
 Do not add any external libraries.
 ```
 
@@ -277,11 +257,11 @@ Students should not just accept AI-generated code. They should understand it.
 Ask Cursor:
 
 ```text
-Explain this React app to a beginner.
+Explain this app to a beginner.
 
 Please explain:
-- What App.jsx does
-- What useState does
+- What index.html does
+- What style.css does
 - How the button shows and hides the project plan
 - How the CSS creates spacing, cards, colors, and visual hierarchy
 Use simple language for middle and high school students.
@@ -317,24 +297,7 @@ This reinforces the lesson’s message that professional design comes from speci
 
 ---
 
-# 13. Suggested Final Code Structure
-
-Students should have files like:
-
-```text
-student-project-showcase/
-  src/
-    App.jsx
-    App.css
-    main.jsx
-  package.json
-```
-
-Encourage students to keep the app simple. For Lesson 5, the learning goal is **professional design transformation**, not building a large application.
-
----
-
-# 14. Example Final App Requirements
+# 13. Example Final App Requirements
 
 The final app should include:
 
@@ -354,117 +317,5 @@ High-contrast text
 Mobile-friendly layout
 
 ---
-
-# 15. Student Submission Checklist
-
-Students should submit:
-
-Before screenshot
-After screenshot
-Their project folder or GitHub link
-Three design problems they fixed
-Two sentences explaining what changed and why
-
-Example reflection:
-
-```text
-I improved the app by adding more spacing, using cards, and making the main button easier to see. These changes make the app easier to understand because the most important information appears first and the project milestones are organized clearly.
-```
-
-This matches the lesson’s milestone submission: apply UI improvements, make at least three noticeable visual changes, take before/after screenshots, and explain the changes. 
-
----
-
-# 16. Teacher Demo Script
-
-You can teach it like this:
-
-“Today we are not just coding. We are learning how to make our app look professional.”
-
-“First, we will ask Cursor to create a basic app.”
-
-“Then we will diagnose design problems like real UI designers.”
-
-“After that, we will not say ‘make it pretty.’ We will give Cursor specific design instructions.”
-
-“Finally, we will test the app and explain our design decisions.”
-
----
-
-# 17. In-Class Activity
-
-## Think-Pair-Share
-
-Ask students to open their basic app.
-
-**Think:** Find 3 design problems silently.
-**Pair:** Compare with a partner.
-**Share:** Tell the class one thing you would improve.
-
-This follows the lesson’s Think-Pair-Share activity on identifying design problems before asking AI to fix them. 
-
----
-
-# 18. Assessment Rubric
-
-| Category         | Excellent                                                  | Good                       | Needs Improvement               |
-| ---------------- | ---------------------------------------------------------- | -------------------------- | ------------------------------- |
-| Functionality    | App runs and button works                                  | App runs with minor issues | App does not run                |
-| Spacing          | Layout has clear breathing room                            | Some spacing is improved   | Content feels crowded           |
-| Alignment        | Sections are consistently aligned                          | Mostly aligned             | Random placement                |
-| Visual Hierarchy | Title, subtitle, cards, and button are clearly prioritized | Some hierarchy             | Hard to know what matters       |
-| Color            | Uses simple, readable color palette                        | Mostly readable            | Too many colors or low contrast |
-| Button Design    | Button is clear and action-oriented                        | Button is visible          | Button is unclear or too small  |
-| Reflection       | Clearly explains 3 changes                                 | Explains 1–2 changes       | Little or no explanation        |
-
----
-
-# 19. Optional Challenge
-
-Advanced students can ask Cursor:
-
-```text
-Add a second project card so this app becomes a mini portfolio with two student projects.
-
-Keep the layout clean and responsive.
-Use the same card style for both projects.
-Do not add external libraries.
-```
-
-Or:
-
-```text
-Add a simple category filter with buttons:
-All, AI, Robotics, Data Science, Web App.
-
-When a user clicks a category, only show matching projects.
-Keep the code beginner-friendly.
-```
-
----
-
-# 20. Key Teaching Message
-
-The most important lesson is:
-
-**AI can help you design faster, but you must give clear design direction.**
-
-Students should remember this formula:
-
-```text
-Target User + Design Style + Layout + Colors/Fonts + Specific Components + Do Not Change Features
-```
-
-That is the difference between a weak prompt:
-
-```text
-Make it pretty.
-```
-
-and a strong prompt:
-
-```text
-Use a clean dashboard style, centered cards, generous spacing, high-contrast text, one blue primary button, and do not change the app’s features.
-```
 
 [1]: https://cursor.com/?utm_source=chatgpt.com "Cursor: AI coding agent"

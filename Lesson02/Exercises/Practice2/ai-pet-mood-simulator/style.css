@@ -166,6 +166,14 @@ body {
   background: linear-gradient(145deg, #f9a8d4, #f472b6);
 }
 
+.pet-body.sick {
+  background: linear-gradient(145deg, #86efac, #4ade80);
+}
+
+.pet-body.sick .pet-mouth {
+  color: #166534;
+}
+
 .pet-face {
   display: flex;
   flex-direction: column;
@@ -254,6 +262,7 @@ body {
 .bar-fill.hunger { background: linear-gradient(90deg, #fb923c, #ea580c); }
 .bar-fill.energy { background: linear-gradient(90deg, #34d399, #059669); }
 .bar-fill.curiosity { background: linear-gradient(90deg, #60a5fa, #7c3aed); }
+.bar-fill.health { background: linear-gradient(90deg, #f87171, #dc2626); }
 
 /* Flash animation when a stat changes */
 .bar-fill.flash {
@@ -304,6 +313,7 @@ body {
 .action-btn.play { background: linear-gradient(135deg, #22c55e, #16a34a); }
 .action-btn.sleep { background: linear-gradient(135deg, #6366f1, #4f46e5); }
 .action-btn.trick { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.action-btn.sick { background: linear-gradient(135deg, #64748b, #475569); }
 .action-btn.random {
   grid-column: 1 / -1;
   background: linear-gradient(135deg, #ec4899, #db2777);

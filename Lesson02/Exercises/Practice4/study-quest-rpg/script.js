@@ -1,8 +1,19 @@
 // ============================================
 // Study Quest RPG — JavaScript
 // ============================================
+// HOW THE XP & LEVEL SYSTEM WORKS:
+//
+// 1. Complete a quest → you earn XP and coins, but lose energy.
+// 2. XP fills up a progress bar. When XP reaches the goal, you LEVEL UP!
+// 3. On level up: your level increases, leftover XP carries over, and
+//    energy is fully restored. Your rank title also changes.
+// 4. Each level needs MORE XP than the last (level × 100).
+//    Example: Level 1 → 2 needs 100 XP. Level 2 → 3 needs 200 XP.
+//
+// TIP: Change the numbers below to customize your game!
 
 // --- Player character stats ---
+// Edit "name" to use your own character name!
 const player = {
   name: "Alex the Adventurer",
   level: 1,
@@ -12,8 +23,9 @@ const player = {
   maxEnergy: 100,
 };
 
-// How much XP is needed to reach the NEXT level
-// Formula: level * 100 (Level 1 needs 100 XP, Level 2 needs 200 XP, etc.)
+// How much XP is needed to reach the NEXT level.
+// Formula: level × 100 (Level 1 needs 100 XP, Level 2 needs 200 XP, etc.)
+// Change the "100" to make leveling faster or slower.
 function xpNeededForLevel(level) {
   return level * 100;
 }
@@ -152,11 +164,15 @@ let questsCompletedToday = 0;
 
 // --- HTML elements ---
 const levelValue = document.getElementById("levelValue");
+const xpValue = document.getElementById("xpValue");
 const coinsValue = document.getElementById("coinsValue");
 const energyValue = document.getElementById("energyValue");
+const energyText = document.getElementById("energyText");
+const energyBar = document.getElementById("energyBar");
 const xpText = document.getElementById("xpText");
 const xpBar = document.getElementById("xpBar");
 const charRank = document.getElementById("charRank");
+const charName = document.getElementById("charName");
 const questList = document.getElementById("questList");
 const restBtn = document.getElementById("restBtn");
 const toast = document.getElementById("toast");
@@ -185,11 +201,11 @@ function showToast(message, type) {
   }, 3000);
 }
 
-// Add XP and check if the player should level up
+// Add XP and check if the player should level up.
+// The "while" loop handles earning lots of XP at once (e.g. multiple level-ups).
 function addXP(amount) {
   player.xp += amount;
 
-  // Keep leveling up if enough XP was earned at once
   while (player.xp >= xpNeededForLevel(player.level)) {
     player.xp -= xpNeededForLevel(player.level);
     levelUp();
@@ -219,21 +235,28 @@ function levelUp() {
 // Update all stats on the screen
 function updateDisplay() {
   levelValue.textContent = player.level;
+  xpValue.textContent = player.xp;
   coinsValue.textContent = player.coins;
   energyValue.textContent = player.energy;
+  charName.textContent = player.name;
   charRank.textContent = getRankTitle(player.level);
 
   const xpNeeded = xpNeededForLevel(player.level);
   xpText.textContent = player.xp + " / " + xpNeeded;
   xpBar.style.width = (player.xp / xpNeeded) * 100 + "%";
 
-  // Visual warning when energy is low
-  if (player.energy < MIN_ENERGY_TO_QUEST) {
+  energyText.textContent = player.energy + " / " + player.maxEnergy;
+  energyBar.style.width = (player.energy / player.maxEnergy) * 100 + "%";
+
+  const isLowEnergy = player.energy < MIN_ENERGY_TO_QUEST;
+  if (isLowEnergy) {
     characterPanel.classList.add("low-energy");
     energyValue.classList.add("low");
+    energyBar.classList.add("low");
   } else {
     characterPanel.classList.remove("low-energy");
     energyValue.classList.remove("low");
+    energyBar.classList.remove("low");
   }
 }
 
