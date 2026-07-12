@@ -1,0 +1,410 @@
+/* ============================================
+   Cosmic Study Coach — Styles
+   Beginner tip: CSS variables below make it
+   easy to tweak colors in one place.
+   ============================================ */
+
+:root {
+  --space-deep: #0b1224;
+  --space-mid: #152238;
+  --space-card: rgba(20, 36, 64, 0.88);
+  --nebula-teal: #2ec4b6;
+  --nebula-cyan: #7fdbda;
+  --star-gold: #f0c75e;
+  --text-bright: #f4f7fb;
+  --text-soft: #b8c5d6;
+  --border-glow: rgba(46, 196, 182, 0.35);
+  --radius: 20px;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --font-display: "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-body: "Segoe UI", "Verdana", sans-serif;
+}
+
+/* Reset some browser defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 1.125rem; /* large, readable text */
+  line-height: 1.5;
+  color: var(--text-bright);
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(46, 196, 182, 0.22), transparent 45%),
+    radial-gradient(ellipse at 85% 20%, rgba(240, 199, 94, 0.12), transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(40, 80, 140, 0.35), transparent 55%),
+    linear-gradient(160deg, var(--space-deep), var(--space-mid) 55%, #0e1a30);
+  overflow-x: hidden;
+}
+
+/* Subtle twinkling star dots (decorative only) */
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 20%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 22% 70%, #fff, transparent),
+    radial-gradient(1px 1px at 40% 30%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 65% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 78% 55%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 90% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 85%, #fff, transparent),
+    radial-gradient(1px 1px at 15% 45%, #fff, transparent);
+  animation: twinkle 6s ease-in-out infinite alternate;
+  opacity: 0.7;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 0.85;
+  }
+}
+
+/* Centers the card on the page */
+.page {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1.25rem 3rem;
+  min-height: 100vh;
+}
+
+/* Rounded main card */
+.mission-card {
+  width: min(100%, 540px);
+  padding: 2rem 1.75rem 1.75rem;
+  background: var(--space-card);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  /* Gentle entrance animation */
+  animation: float-in 0.7s ease-out;
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-bright);
+  /* Soft title shimmer */
+  animation: title-glow 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes title-glow {
+  from {
+    text-shadow: 0 0 0 transparent;
+  }
+  to {
+    text-shadow: 0 0 18px rgba(46, 196, 182, 0.35);
+  }
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(1.05rem, 3.5vw, 1.2rem);
+  color: var(--text-soft);
+}
+
+/* Stack form fields with comfortable spacing */
+.mission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--nebula-cyan);
+}
+
+/* Shared look for inputs and selects */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  color: var(--text-bright);
+  background: rgba(8, 16, 32, 0.65);
+  border: 1px solid rgba(127, 219, 218, 0.25);
+  border-radius: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+  color: #7a8ba3;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: var(--nebula-teal);
+  box-shadow: 0 0 0 3px rgba(46, 196, 182, 0.2);
+}
+
+/* Make dropdown options readable in most browsers */
+select option {
+  background: #152238;
+  color: var(--text-bright);
+}
+
+.launch-btn {
+  margin-top: 0.35rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #102018;
+  background: linear-gradient(135deg, var(--nebula-teal), var(--star-gold));
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.launch-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(46, 196, 182, 0.3);
+  filter: brightness(1.05);
+}
+
+.launch-btn:active {
+  transform: translateY(0);
+}
+
+.launch-btn:focus-visible {
+  outline: 3px solid var(--nebula-cyan);
+  outline-offset: 3px;
+}
+
+/* Result area — empty until a quest is launched */
+.result-area {
+  margin-top: 1.5rem;
+  min-height: 5.5rem;
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px dashed rgba(127, 219, 218, 0.35);
+  background: rgba(8, 16, 32, 0.4);
+}
+
+.result-area.has-content {
+  border-style: solid;
+  border-color: rgba(127, 219, 218, 0.28);
+  padding: 0;
+  overflow: hidden;
+}
+
+.launch-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+/* Friendly error + scanning messages */
+.result-message {
+  padding: 1.25rem 1.35rem;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.error-message {
+  color: #ffd4a8;
+  background: rgba(120, 50, 30, 0.35);
+  animation: float-in 0.35s ease-out;
+}
+
+.scanning-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--nebula-cyan);
+  text-align: center;
+  animation: pulse-soft 1.1s ease-in-out infinite;
+}
+
+/* Animated scanning dots */
+.scan-dots {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--star-gold);
+  box-shadow:
+    1.1rem 0 0 var(--nebula-teal),
+    2.2rem 0 0 var(--nebula-cyan);
+  margin-right: 2.2rem;
+  animation: scan-bounce 0.9s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes scan-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Attractive animated quest result card */
+.quest-card {
+  padding: 1.35rem 1.35rem 1.5rem;
+  background:
+    radial-gradient(ellipse at top right, rgba(46, 196, 182, 0.18), transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(240, 199, 94, 0.12), transparent 45%),
+    rgba(10, 20, 40, 0.55);
+  animation: quest-reveal 0.55s ease-out;
+}
+
+@keyframes quest-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.quest-title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4.5vw, 1.7rem);
+  color: var(--star-gold);
+  line-height: 1.25;
+}
+
+.quest-heading {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--nebula-cyan);
+}
+
+.quest-plan {
+  margin: 0 0 1.15rem;
+  padding-left: 1.35rem;
+}
+
+.quest-plan li {
+  margin-bottom: 0.55rem;
+  color: var(--text-bright);
+}
+
+.quest-plan li::marker {
+  color: var(--nebula-teal);
+  font-weight: 700;
+}
+
+.quest-explanation {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  color: var(--text-soft);
+  background: rgba(8, 16, 32, 0.45);
+  border-radius: 12px;
+  border-left: 3px solid var(--nebula-teal);
+  font-size: 1rem;
+}
+
+.quest-motivation {
+  margin: 0 0 1.15rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--nebula-cyan);
+  text-align: center;
+}
+
+.try-again-btn {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  background: transparent;
+  border: 2px solid var(--nebula-teal);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.try-again-btn:hover {
+  background: rgba(46, 196, 182, 0.15);
+  transform: translateY(-1px);
+}
+
+.try-again-btn:focus-visible {
+  outline: 3px solid var(--nebula-cyan);
+  outline-offset: 3px;
+}
+
+/* Phone-friendly tweaks */
+@media (max-width: 480px) {
+  .page {
+    padding: 1.25rem 0.9rem 2rem;
+  }
+
+  .mission-card {
+    padding: 1.5rem 1.15rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .launch-btn {
+    font-size: 1.05rem;
+  }
+
+  .quest-card {
+    padding: 1.15rem 1.1rem 1.25rem;
+  }
+}

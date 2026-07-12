@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Helps the page look good on phones and tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Study Coach</title>
+  <!-- Link our custom styles (no frameworks) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Soft starfield background layer -->
+  <div class="stars" aria-hidden="true"></div>
+
+  <main class="page">
+    <!-- Main card that holds the whole form -->
+    <section class="mission-card">
+      <header class="hero">
+        <!-- Brand title — big and easy to spot -->
+        <h1 class="title">Cosmic Study Coach</h1>
+        <p class="subtitle">Turn homework into a study mission.</p>
+      </header>
+
+      <!-- Study mission form — JavaScript reads these values on submit -->
+      <form class="mission-form" id="mission-form" action="#" method="get">
+        <!-- Subject text input -->
+        <label class="field" for="subject">
+          <span class="field-label">School subject</span>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="e.g. Algebra, Biology, History"
+            autocomplete="off"
+          >
+        </label>
+
+        <!-- Difficulty dropdown -->
+        <label class="field" for="difficulty">
+          <span class="field-label">Difficulty</span>
+          <select id="difficulty" name="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+
+        <!-- Study-time dropdown -->
+        <label class="field" for="study-time">
+          <span class="field-label">Study time</span>
+          <select id="study-time" name="study-time">
+            <option value="15">15 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60">60 minutes</option>
+          </select>
+        </label>
+
+        <!-- Energy dropdown -->
+        <label class="field" for="energy">
+          <span class="field-label">Energy level</span>
+          <select id="energy" name="energy">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+
+        <!-- Launch button — runs validation + quest builder in script.js -->
+        <button type="submit" class="launch-btn" id="launch-btn">
+          Launch My Study Quest
+        </button>
+      </form>
+
+      <!-- Results appear here: errors, scanning message, or quest card -->
+      <section
+        class="result-area"
+        id="result-area"
+        aria-live="polite"
+        aria-label="Study quest results"
+      >
+        <!-- Filled by JavaScript after Launch My Study Quest -->
+      </section>
+    </section>
+  </main>
+
+  <!-- Link our JavaScript file (loads after the HTML so elements exist) -->
+  <script src="script.js"></script>
+</body>
+</html>
