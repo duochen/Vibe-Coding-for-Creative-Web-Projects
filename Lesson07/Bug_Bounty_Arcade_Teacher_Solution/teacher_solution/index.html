@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bug Bounty Arcade</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Digital Detective Agency - Training Mission</p>
+    <h1>🐞 Bug Bounty Arcade</h1>
+    <p>Repair the arcade before the aliens arrive for snack time!</p>
+  </header>
+
+  <main class="case-grid">
+    <section class="card" id="alienCase">
+      <span class="case-tag">Case 1</span>
+      <h2>👽 Feed the Alien</h2>
+      <p>Expected: clicking the button increases the snack meter.</p>
+      <div class="meter"><div id="snackBar"></div></div>
+      <p>Snacks: <strong id="snackCount">0</strong>/5</p>
+      <button id="feedAlienBtn">Feed Alien</button>
+    </section>
+
+    <section class="card">
+      <span class="case-tag">Case 2</span>
+      <h2>🎯 Space Quiz Score</h2>
+      <p>Choose points and add them to the score.</p>
+      <label for="pointsSelect">Points earned</label>
+      <select id="pointsSelect">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+      </select>
+      <button id="addPointsBtn">Add Points</button>
+      <p>Total score: <strong id="scoreValue">0</strong></p>
+    </section>
+
+    <section class="card">
+      <span class="case-tag">Case 3</span>
+      <h2>🛸 Pilot Registration</h2>
+      <p>Submit a pilot name. The page should stay put and show confirmation.</p>
+      <form id="pilotForm">
+        <label for="pilotName">Pilot name</label>
+        <input id="pilotName" required placeholder="Captain Nova" />
+        <button type="submit">Register Pilot</button>
+      </form>
+      <p id="pilotMessage" class="message"></p>
+    </section>
+
+    <section class="card">
+      <span class="case-tag">Case 4</span>
+      <h2>🔐 Secret Code Checker</h2>
+      <p>Enter <code>ORBIT</code>. A success message should appear.</p>
+      <input id="secretCode" placeholder="Enter secret code" />
+      <button id="checkCodeBtn">Check Code</button>
+      <p id="statusMessage" class="message"></p>
+    </section>
+
+    <section class="card evidence-card">
+      <span class="case-tag">Case 5</span>
+      <h2>📱 Mobile Evidence</h2>
+      <p>Resize the browser to a phone-sized width. The page should fit without horizontal scrolling.</p>
+      <div class="evidence-strip">
+        <span>🔎 Clue</span><span>🧩 Pattern</span><span>🧪 Test</span><span>✅ Proof</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Detective rule: Observe → Reproduce → Ask with clues → Test → Record.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
