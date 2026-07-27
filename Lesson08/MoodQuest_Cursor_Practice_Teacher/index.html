@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoodQuest — Find Your Next Mini Adventure</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">MoodQuest</p>
+      <h1>Find Your Next Mini Adventure</h1>
+      <p>Tell us how you feel, how much time you have, and where you want to go. We will suggest a fun quest.</p>
+    </header>
+
+    <section class="how-it-works" aria-labelledby="how-title">
+      <h2 id="how-title">How it works</h2>
+      <ol>
+        <li><span>1</span> Pick your mood</li>
+        <li><span>2</span> Choose your time</li>
+        <li><span>3</span> Get a quest</li>
+      </ol>
+    </section>
+
+    <section class="panel" aria-labelledby="form-title">
+      <h2 id="form-title">Build My Quest</h2>
+      <p class="section-intro">Complete all three choices. You can start over anytime.</p>
+      <form id="quest-form" novalidate>
+        <label for="mood">How do you feel?</label>
+        <select id="mood" name="mood" required>
+          <option value="">Choose a mood</option>
+          <option value="energetic">⚡ Energetic</option>
+          <option value="creative">🎨 Creative</option>
+          <option value="calm">🌿 Calm</option>
+          <option value="social">🎉 Social</option>
+        </select>
+
+        <label for="time">How much time do you have?</label>
+        <select id="time" name="time" required>
+          <option value="">Choose a time</option>
+          <option value="10">10 minutes</option>
+          <option value="30">30 minutes</option>
+          <option value="60">60+ minutes</option>
+        </select>
+
+        <fieldset>
+          <legend>Where should your quest happen?</legend>
+          <label><input type="radio" name="place" value="indoor" /> Indoors</label>
+          <label><input type="radio" name="place" value="outdoor" /> Outdoors</label>
+          <label><input type="radio" name="place" value="either" /> Surprise me</label>
+        </fieldset>
+
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+
+        <div class="button-row">
+          <button type="submit" class="primary-button">Find My Quest</button>
+          <button type="button" id="reset-button" class="secondary-button">Start Over</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="result" class="result" aria-live="polite" aria-atomic="true">
+      <div class="empty-state">
+        <span aria-hidden="true">🧭</span>
+        <p>Your quest will appear here.</p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

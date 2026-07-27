@@ -1,0 +1,36 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #14213d;
+  background: linear-gradient(135deg, #fff4cc, #f3e8ff);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; padding: 24px; }
+.app-shell { width: min(900px, 100%); margin: 0 auto; }
+.hero { text-align: center; padding: 20px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-weight: 800; }
+h1 { margin: 0; font-size: clamp(2.4rem, 8vw, 5rem); }
+.panel, .result {
+  background: rgba(255,255,255,.88);
+  border: 2px solid #14213d;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 10px 10px 0 #14213d;
+}
+form { display: grid; grid-template-columns: 90px 1fr; gap: 18px; align-items: center; }
+select { width: 100%; padding: 12px; border: 2px solid #14213d; border-radius: 12px; }
+fieldset { grid-column: 1 / -1; border: 0; display: flex; gap: 28px; padding: 0; }
+.button-row { grid-column: 1 / -1; display: flex; gap: 12px; }
+button { border: 2px solid #14213d; cursor: pointer; }
+.primary-button { flex: 1; padding: 14px; border-radius: 12px; background: #ff4fa3; font-weight: 800; }
+.icon-button { width: 30px; height: 30px; border-radius: 50%; background: white; }
+.result { margin-top: 28px; min-height: 76px; }
+
+/* INTENTIONAL UX PROBLEMS FOR STUDENTS TO DISCOVER:
+   - Labels "1, 2, 3" do not explain what the fields mean.
+   - Button label "Go" is vague.
+   - Reset button is tiny and icon-only.
+   - No mobile layout adjustment.
+   - No visible error or loading message.
+   - Result is one long paragraph.
+   Fix these through the lesson rather than rewriting the whole app. */

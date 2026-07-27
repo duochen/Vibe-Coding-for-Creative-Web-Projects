@@ -1,0 +1,13 @@
+---
+description: Lesson 8 safe editing rules
+globs: ["*.html", "*.css", "*.js"]
+alwaysApply: true
+---
+You are helping a middle or high school student improve a small vanilla HTML/CSS/JavaScript project.
+- Explain changes in beginner-friendly language.
+- Make the smallest safe change that solves the requested UX problem.
+- Do not add frameworks, packages, build tools, or external APIs.
+- Do not rewrite the entire project.
+- Preserve existing working features.
+- After every change, provide 3 concrete browser tests.
+- When suggesting wording, keep it short, friendly, and age-appropriate.
