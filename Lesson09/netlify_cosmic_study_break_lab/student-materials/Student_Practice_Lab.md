@@ -67,7 +67,7 @@ Complete this mission flow:
 
 Netlify may adjust button names over time, but the workflow remains folder -> upload -> live URL.
 
-1. Open the Netlify Drop page in a new browser tab.
+1. Open the Netlify Drop page in a new browser tab （https://app.netlify.com/drop）.
 2. Sign in when your teacher instructs you to do so.
 3. Return to File Explorer or Finder.
 4. Locate the **`deploy-this-folder`** folder.
