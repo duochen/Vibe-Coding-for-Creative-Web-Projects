@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fun study break generator built with HTML, CSS, and JavaScript.">
+  <title>Cosmic Study Break</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">MISSION CONTROL</p>
+        <h1>Cosmic Study Break</h1>
+        <p>Choose your energy level. Launch a tiny mission. Return ready to learn.</p>
+      </div>
+      <button id="themeButton" class="icon-button" type="button" aria-label="Switch color theme">🌙</button>
+    </header>
+
+    <section class="mission-card" aria-labelledby="mission-heading">
+      <h2 id="mission-heading">1. Check your energy</h2>
+      <div class="energy-grid" role="group" aria-label="Choose an energy level">
+        <button class="energy-button selected" data-energy="low" type="button">🪫 Low</button>
+        <button class="energy-button" data-energy="medium" type="button">🔋 Medium</button>
+        <button class="energy-button" data-energy="high" type="button">⚡ High</button>
+      </div>
+
+      <h2>2. Pick mission length</h2>
+      <label class="slider-row" for="minutes">
+        <input id="minutes" type="range" min="1" max="5" value="2">
+        <span><strong id="minuteValue">2</strong> minutes</span>
+      </label>
+
+      <button id="launchButton" class="launch-button" type="button">🚀 Launch My Mission</button>
+    </section>
+
+    <section id="resultCard" class="result-card hidden" aria-live="polite">
+      <p class="eyebrow">YOUR MISSION</p>
+      <div id="missionEmoji" class="mission-emoji">🛰️</div>
+      <h2 id="missionTitle">Mission title</h2>
+      <p id="missionText">Mission details appear here.</p>
+      <div class="timer" aria-label="Mission timer">
+        <span id="timerDisplay">02:00</span>
+      </div>
+      <div class="button-row">
+        <button id="startTimerButton" class="secondary-button" type="button">Start Timer</button>
+        <button id="completeButton" class="complete-button" type="button">Mission Complete +10 XP</button>
+      </div>
+    </section>
+
+    <section class="stats-card" aria-label="Mission statistics">
+      <div><span id="xpValue">0</span><small>XP</small></div>
+      <div><span id="missionCount">0</span><small>Missions</small></div>
+      <div><span id="rankValue">Cadet</span><small>Rank</small></div>
+    </section>
+
+    <section class="about-card">
+      <h2>About this project</h2>
+      <p>This beginner web app uses HTML for structure, CSS for design, and JavaScript for interaction. It stores mission progress only in this browser.</p>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
